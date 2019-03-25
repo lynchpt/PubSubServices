@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ServiceProcess;
 
 namespace PubSubServices.PublisherService
 {
@@ -6,7 +7,22 @@ namespace PubSubServices.PublisherService
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            bool isConsole = Array.IndexOf(args, "--console") > -1 || Environment.CurrentDirectory != Environment.SystemDirectory;
+
+            using (var service = new PublisherService())
+            {
+                if ( isConsole )
+                {
+                    service.StartAsConsole(args);
+                    Console.WriteLine("Press any key to stop program.");
+                    Console.ReadLine();
+                    service.Stop();
+                }
+                else
+                {
+                    ServiceBase.Run(service);
+                }
+            }
         }
     }
 }
