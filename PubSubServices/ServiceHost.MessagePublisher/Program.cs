@@ -5,15 +5,27 @@ using HostedService.Interfaces;
 
 using MessagePublisherService;
 
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+
 namespace PubSubServices.PublisherService
 {
     class Program
     {
+        #region Class Variables
+        private static IServiceProvider _serviceProvider;
+        #endregion
+
         static void Main(string[] args)
         {
             bool isConsole = Array.IndexOf(args, "--console") > -1 || Environment.CurrentDirectory != Environment.SystemDirectory;
 
-            using (ServiceBase service = new MessagePublisherScheduler())
+            _serviceProvider = ConfigureDependencyInjection();
+
+            var logger = _serviceProvider.GetService<ILoggerFactory>().CreateLogger<Program>();
+            logger.LogInformation("Retrieved Logger from DI Container");
+
+            using (ServiceBase service = _serviceProvider.GetService<ServiceBase>())
             {
                 if ( isConsole )
                 {
@@ -23,10 +35,10 @@ namespace PubSubServices.PublisherService
                     if (service is IConsoleHostedService hostedService )
                     {
                         hostedService.StartAsConsole(args);
-  
-                        Console.WriteLine($"Service {service.ServiceName} started successfully in console hosted mode");
-                        Console.WriteLine();
-                        Console.WriteLine($"Press any key to stop {service.ServiceName}.");
+
+                        logger.LogInformation($"Service {service.ServiceName} started successfully in console hosted mode");
+
+                        logger.LogInformation($"Press any key to stop {service.ServiceName}.");
                         Console.ReadKey();
 
                         service.Stop();
@@ -44,5 +56,20 @@ namespace PubSubServices.PublisherService
                 }
             }
         }
+
+        #region Private Methods
+        private static IServiceProvider ConfigureDependencyInjection()
+        {
+            IServiceCollection serviceCollection = new ServiceCollection();
+            serviceCollection.AddLogging( lb => lb.AddConsole() );
+            serviceCollection.AddSingleton<ServiceBase, MessagePublisherScheduler>();
+
+            _serviceProvider = serviceCollection.BuildServiceProvider();
+
+            return _serviceProvider;
+        }
+        #endregion
+
+
     }
 }

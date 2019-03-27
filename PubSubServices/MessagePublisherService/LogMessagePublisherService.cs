@@ -6,11 +6,11 @@ using System.Text;
 
 namespace MessagePublisherService
 {
-    public class InMemoryMessagePublisherService : IMessagePublisherService
+    public class LogMessagePublisherService : IMessagePublisherService
     {
         #region Constructors
 
-        public InMemoryMessagePublisherService()
+        public LogMessagePublisherService()
         {
             
         }

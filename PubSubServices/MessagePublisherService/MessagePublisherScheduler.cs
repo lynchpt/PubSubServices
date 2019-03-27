@@ -4,21 +4,29 @@ using System.IO;
 using System.ServiceProcess;
 using System.Text;
 
+using Microsoft.Extensions.Logging;
+
 namespace MessagePublisherService
 {
     public class MessagePublisherScheduler : ServiceBase, IMessagePublisherScheduler
     {
         #region Class Variables
+
+        private ILogger<MessagePublisherScheduler> _logger;
+
         private System.Timers.Timer _scheduler;
 
         private readonly IMessagePublisherService _messagePublisherService;
         #endregion
 
         #region Constructors
-        public MessagePublisherScheduler()
+        public MessagePublisherScheduler(ILogger<MessagePublisherScheduler> logger)
         {
-            
-            _messagePublisherService = new InMemoryMessagePublisherService();
+            _logger = logger;
+
+            _logger.LogInformation("MessagePublisherScheduler constructed");
+
+            _messagePublisherService = new LogMessagePublisherService();
             ServiceName = _messagePublisherService.GetType().Name;
             //timer
             InitializeTimer();
@@ -46,14 +54,14 @@ namespace MessagePublisherService
         #region ServiceBase Overrides
         protected override void OnStart(string[] args)
         {
-            //string filename = InMemoryMessagePublisherService.CheckFileExists();
+            //string filename = LogMessagePublisherService.CheckFileExists();
             //File.AppendAllText(filename, $"{DateTime.Now} started.{Environment.NewLine}");
             base.OnStart(args);
         }
 
         protected override void OnStop()
         {
-            //string filename = InMemoryMessagePublisherService.CheckFileExists();
+            //string filename = LogMessagePublisherService.CheckFileExists();
             //File.AppendAllText(filename, $"{DateTime.Now} stopped.{Environment.NewLine}");
         }
         #endregion
