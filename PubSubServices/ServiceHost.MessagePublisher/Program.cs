@@ -63,6 +63,7 @@ namespace PubSubServices.PublisherService
             IServiceCollection serviceCollection = new ServiceCollection();
             serviceCollection.AddLogging( lb => lb.AddConsole() );
             serviceCollection.AddSingleton<ServiceBase, MessagePublisherScheduler>();
+            serviceCollection.AddScoped<IMessagePublisherService, LogMessagePublisherService>();
 
             _serviceProvider = serviceCollection.BuildServiceProvider();
 

@@ -12,21 +12,21 @@ namespace MessagePublisherService
     {
         #region Class Variables
 
-        private ILogger<MessagePublisherScheduler> _logger;
+        private readonly ILogger<MessagePublisherScheduler> _logger;
+        private readonly IMessagePublisherService _messagePublisherService;
 
         private System.Timers.Timer _scheduler;
 
-        private readonly IMessagePublisherService _messagePublisherService;
+
         #endregion
 
         #region Constructors
-        public MessagePublisherScheduler(ILogger<MessagePublisherScheduler> logger)
+        public MessagePublisherScheduler(ILogger<MessagePublisherScheduler> logger,
+            IMessagePublisherService messagePublisherService)
         {
             _logger = logger;
+            _messagePublisherService = messagePublisherService;
 
-            _logger.LogInformation("MessagePublisherScheduler constructed");
-
-            _messagePublisherService = new LogMessagePublisherService();
             ServiceName = _messagePublisherService.GetType().Name;
             //timer
             InitializeTimer();
@@ -36,39 +36,45 @@ namespace MessagePublisherService
         {
             try
             {
+                _logger.LogInformation(
+                    $"{nameof(MessagePublisherScheduler)} {nameof(OnElapsed)} method called" );
+
                 _messagePublisherService.PublishMessages();
 
                 //if we succeeded (no exception generated), we know we can enable the timer
                 //to fire one more event
                 _scheduler.Enabled = true;
             }
-            catch (Exception ex)
+            catch ( Exception ex )
             {
                 //handle (usually logging)
                 //since we are not re-enabling the timer, no more events will get fired.
+                _logger.LogError($"Error in {nameof(OnElapsed)} method: {ex.Message}");
             }
-            
+            finally
+            {
+                _logger.LogInformation($"_scheduler.Enabled set to {_scheduler.Enabled}");
+            }
         }
         #endregion
 
         #region ServiceBase Overrides
         protected override void OnStart(string[] args)
         {
-            //string filename = LogMessagePublisherService.CheckFileExists();
-            //File.AppendAllText(filename, $"{DateTime.Now} started.{Environment.NewLine}");
+            _logger.LogInformation($"{nameof(OnStart)} method called");
             base.OnStart(args);
         }
 
         protected override void OnStop()
         {
-            //string filename = LogMessagePublisherService.CheckFileExists();
-            //File.AppendAllText(filename, $"{DateTime.Now} stopped.{Environment.NewLine}");
+            _logger.LogInformation($"{nameof(OnStop)} method called");
         }
         #endregion
 
         #region IConsoleHostedService Implementation
         public void StartAsConsole(string[] args)
         {
+            _logger.LogInformation($"{nameof(OnStop)} method called");
             this.OnStart(args);
         }
 

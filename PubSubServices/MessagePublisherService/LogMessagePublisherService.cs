@@ -4,15 +4,21 @@ using System.IO;
 using System.ServiceProcess;
 using System.Text;
 
+using Microsoft.Extensions.Logging;
+
 namespace MessagePublisherService
 {
     public class LogMessagePublisherService : IMessagePublisherService
     {
+        #region Class Variables
+        private readonly ILogger<LogMessagePublisherService> _logger;
+        #endregion
+
         #region Constructors
 
-        public LogMessagePublisherService()
+        public LogMessagePublisherService(ILogger<LogMessagePublisherService> logger)
         {
-            
+            _logger = logger;
         }
         #endregion
 
@@ -32,15 +38,12 @@ namespace MessagePublisherService
                     throw new Exception("Handled Error");
                 }
 
-                string filename = CheckFileExists();
-                File.AppendAllText(filename, $"{DateTime.Now} processed.{Environment.NewLine}");
+                _logger.LogInformation("Published message");
 
             }
             catch (DivideByZeroException dbze)
             {
-                string filename = CheckFileExists();
-                File.AppendAllText(filename, $"{DateTime.Now} Fatal Error {dbze.Message}.{Environment.NewLine}");
-
+                _logger.LogCritical($"Fatal Error: {dbze.Message}");
                 //example of error where we want to stop the process from trying to run again.
                 //this is done by throwing the exception, which will result in the scheduler
                 //not resetting the timer event
@@ -54,24 +57,12 @@ namespace MessagePublisherService
                 //and resetting the timer event
 
                 //handle
-                string filename = CheckFileExists();
-                File.AppendAllText(filename, $"{DateTime.Now} Warning {ex.Message}.{Environment.NewLine}");
+                _logger.LogError($"Handled Error: {ex.Message}");
             }
         }
         #endregion
 
         #region Private Methods
-
-        private string CheckFileExists()
-        {
-            string filename = @"c:\temp\MyService.txt";
-            if (!File.Exists(filename))
-            {
-                File.Create(filename);
-            }
-
-            return filename;
-        }
 
         #endregion
     }

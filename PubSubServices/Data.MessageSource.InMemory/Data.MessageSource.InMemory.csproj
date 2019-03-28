@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>PubSubServices.Data.MessageSource.InMemory</AssemblyName>
+    <RootNamespace>PubSubServices.Data.MessageSource.InMemory</RootNamespace>
+  </PropertyGroup>
+
+</Project>
