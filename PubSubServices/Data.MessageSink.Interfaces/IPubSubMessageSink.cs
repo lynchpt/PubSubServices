@@ -7,6 +7,6 @@ namespace PubSubServices.Data.MessageSink.Interfaces
 {
     public interface IPubSubMessageSink
     {
-        int PublishMessages(IList<OutgoingPubSubMessageDescription> messagesToPublish);
+        IList<PubSubMessagePublishResult> PublishMessages(IList<OutgoingPubSubMessageDescription> messagesToPublish);
     }
 }

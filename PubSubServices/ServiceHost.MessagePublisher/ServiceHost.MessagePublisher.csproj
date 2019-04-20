@@ -15,6 +15,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Data.MessageSink.Interfaces\Data.MessageSink.Interfaces.csproj" />
+    <ProjectReference Include="..\Data.MessageSink.Log\Data.MessageSink.Log.csproj" />
+    <ProjectReference Include="..\Data.MessageSource.InMemory\Data.MessageSource.InMemory.csproj" />
+    <ProjectReference Include="..\Data.MessageSource.Interfaces\Data.MessageSource.Interfaces.csproj" />
     <ProjectReference Include="..\HostedService.Interfaces\HostedService.Interfaces.csproj" />
     <ProjectReference Include="..\MessagePublisherService\MessagePublisherService.csproj" />
   </ItemGroup>

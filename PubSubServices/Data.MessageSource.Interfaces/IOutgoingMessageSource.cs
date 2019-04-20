@@ -7,6 +7,6 @@ namespace PubSubServices.Data.MessageSource.Interfaces
 {
     public interface IOutgoingMessageSource
     {
-        IEnumerable<OutgoingPubSubMessageDescription> GetOutgoingMessages();
+        IList<OutgoingPubSubMessageDescription> GetOutgoingMessages();
     }
 }

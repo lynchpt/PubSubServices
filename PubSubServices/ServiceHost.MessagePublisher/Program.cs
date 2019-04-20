@@ -7,6 +7,10 @@ using MessagePublisherService;
 
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using PubSubServices.Data.MessageSink.Interfaces;
+using PubSubServices.Data.MessageSink.Log;
+using PubSubServices.Data.MessageSource.InMemory;
+using PubSubServices.Data.MessageSource.Interfaces;
 
 namespace PubSubServices.PublisherService
 {
@@ -63,7 +67,9 @@ namespace PubSubServices.PublisherService
             IServiceCollection serviceCollection = new ServiceCollection();
             serviceCollection.AddLogging( lb => lb.AddConsole() );
             serviceCollection.AddSingleton<ServiceBase, MessagePublisherScheduler>();
-            serviceCollection.AddScoped<IMessagePublisherService, LogMessagePublisherService>();
+            serviceCollection.AddSingleton<IOutgoingMessageSource, OutgoingMessageSource>();
+            serviceCollection.AddSingleton<IPubSubMessageSink, LogMessageSink>();
+            serviceCollection.AddSingleton<IMessagePublisherService, LogMessagePublisherService>();
 
             _serviceProvider = serviceCollection.BuildServiceProvider();
 

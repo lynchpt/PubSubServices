@@ -7,6 +7,6 @@ namespace PubSubServices.Data.MessageSource.Interfaces
 {
     public interface IIncomingMessageSource
     {
-       IEnumerable<IncomingPubSubMessageDescription> GetIncomingMessages();
+       IList<IncomingPubSubMessageDescription> GetIncomingMessages();
     }
 }

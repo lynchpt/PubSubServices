@@ -12,7 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Data.MessageSink.Interfaces\Data.MessageSink.Interfaces.csproj" />
+    <ProjectReference Include="..\Data.MessageSource.Interfaces\Data.MessageSource.Interfaces.csproj" />
     <ProjectReference Include="..\HostedService.Interfaces\HostedService.Interfaces.csproj" />
+    <ProjectReference Include="..\Model.PubSub\Model.PubSub.csproj" />
   </ItemGroup>
 
 </Project>

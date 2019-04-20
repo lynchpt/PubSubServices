@@ -1,4 +1,5 @@
-﻿using PubSubServices.Data.MessageSource.Interfaces;
+﻿using Microsoft.Extensions.Logging;
+using PubSubServices.Data.MessageSource.Interfaces;
 using PubSubServices.Model.PubSub;
 using System;
 using System.Collections.Generic;
@@ -8,15 +9,19 @@ namespace PubSubServices.Data.MessageSource.InMemory
 {
     public class IncomingMessageSource : IIncomingMessageSource
     {
-        #region Constructors
-        public IncomingMessageSource()
-        {
+        #region Class Variables
+        private readonly ILogger<IncomingMessageSource> _logger;
+        #endregion
 
+        #region Constructors
+        public IncomingMessageSource(ILogger<IncomingMessageSource> logger)
+        {
+            _logger = logger;
         }
         #endregion
 
         #region IIncomingMessageSource Implementation
-        public IEnumerable<IncomingPubSubMessageDescription> GetIncomingMessages()
+        public IList<IncomingPubSubMessageDescription> GetIncomingMessages()
         {
             throw new NotImplementedException();
         } 

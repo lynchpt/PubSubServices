@@ -1,4 +1,5 @@
-﻿using PubSubServices.Data.MessageSource.Interfaces;
+﻿using Microsoft.Extensions.Logging;
+using PubSubServices.Data.MessageSource.Interfaces;
 using PubSubServices.Model.PubSub;
 using System;
 using System.Collections.Generic;
@@ -8,26 +9,32 @@ namespace PubSubServices.Data.MessageSource.InMemory
 {
     public class OutgoingMessageSource : IOutgoingMessageSource
     {
-        #region Constructors
-        public OutgoingMessageSource()
-        {
+        #region Class Variables
+        private readonly ILogger<OutgoingMessageSource> _logger;
+        #endregion
 
+        #region Constructors
+        public OutgoingMessageSource(ILogger<OutgoingMessageSource> logger)
+        {
+            _logger = logger;
         }
         #endregion
 
         #region IOutgoingMessageSource Implementation
-        public IEnumerable<OutgoingPubSubMessageDescription> GetOutgoingMessages()
+        public IList<OutgoingPubSubMessageDescription> GetOutgoingMessages()
         {
-            IEnumerable<OutgoingPubSubMessageDescription> outgoingMessages = GenerateOutgoingMessages();
+            IList<OutgoingPubSubMessageDescription> outgoingMessages = new List<OutgoingPubSubMessageDescription>();
+
+            outgoingMessages = GenerateOutgoingMessages();
 
             return outgoingMessages;
         }
         #endregion
 
         #region Private Methods
-        private IEnumerable<OutgoingPubSubMessageDescription> GenerateOutgoingMessages()
+        private IList<OutgoingPubSubMessageDescription> GenerateOutgoingMessages()
         {
-            IEnumerable<OutgoingPubSubMessageDescription> outgoingMessages = new List<OutgoingPubSubMessageDescription>()
+            IList<OutgoingPubSubMessageDescription> outgoingMessages = new List<OutgoingPubSubMessageDescription>()
             {
                 new OutgoingPubSubMessageDescription()
                 {
