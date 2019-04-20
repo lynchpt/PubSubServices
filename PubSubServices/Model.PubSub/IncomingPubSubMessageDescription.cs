@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FMGlobal.Lucid.Infra.Models.PubSub
+namespace PubSubServices.Model.PubSub
 {
     /// <summary>
     /// This class allows important information about incoming Pub Sub messages in a format that allows it
@@ -10,9 +10,9 @@ namespace FMGlobal.Lucid.Infra.Models.PubSub
     /// message. Also included is metadata to allow tracking the status of this message as it is processed by application logic.
     /// 
     /// </summary>
-    public class IncomingPubSubMessageDescription: IIncomingPubSubMessageDescriptionFields
+    public class IncomingPubSubMessageDescription
     {
-        public int IncomingPubSubMessageDescriptionId  { get; set; }
+        public int IncomingPubSubMessageDescriptionId { get; set; }
         public Guid MessageId { get; set; }
         public string OriginatorId { get; set; }
         public string MessageBodyVersion { get; set; }

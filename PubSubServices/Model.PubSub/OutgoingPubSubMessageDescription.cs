@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FMGlobal.Lucid.Infra.Models.PubSub
+namespace PubSubServices.Model.PubSub
 {
     /// <summary>
     /// This class allows important information about outgoing Pub Sub messages in a format that allows it
@@ -12,7 +12,7 @@ namespace FMGlobal.Lucid.Infra.Models.PubSub
     /// NOTE: DO NOT CHANGE THE ORDER OF THE PROPERTIES OF THIS CLASS.
     /// NOTE: THE CODE THAT CONSUMES THIS TYPE IN ADOHELPER IS SENSITIVE TO THE PROPERTY ORDER.
     /// </summary>
-    public class OutgoingPubSubMessageDescription : IOutgoingPubSubMessageDescription
+    public class OutgoingPubSubMessageDescription
     {
         #region Properties, Indexers
 

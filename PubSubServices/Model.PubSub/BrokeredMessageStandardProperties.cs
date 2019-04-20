@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace FMGlobal.Lucid.Infra.Models.PubSub
+namespace PubSubServices.Model.PubSub
 {
     /// <summary>
     /// Contains metadata information that is common to all Pub Sub messages
@@ -13,7 +13,7 @@ namespace FMGlobal.Lucid.Infra.Models.PubSub
         public int MessagePropertiesMajorVersionNumber => Convert.ToInt32(MessagePropertiesVersion.Substring(0, 1));
         public string MessageBodyVersion { get; set; }
         //this relies on the first character of MessageBodyVersion being a number, which will be the case in semantic versioning
-        public int MessageBodyMajorVersionNumber => Convert.ToInt32(MessageBodyVersion.Substring(0,1));
+        public int MessageBodyMajorVersionNumber => Convert.ToInt32(MessageBodyVersion.Substring(0, 1));
         public string BodyFullTypeName { get; set; }
         public string OriginatorId { get; set; }
 

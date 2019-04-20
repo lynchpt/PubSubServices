@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Model.SampleMessage
+namespace Model.Message.SampleTopic
 {
-    public class SampleMessageBody
+    public class SampleTopicMessageBody
     {
         public int Id { get; set; }
         public string Name { get; set; }

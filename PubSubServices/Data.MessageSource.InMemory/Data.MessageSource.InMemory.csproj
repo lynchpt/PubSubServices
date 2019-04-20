@@ -6,4 +6,8 @@
     <RootNamespace>PubSubServices.Data.MessageSource.InMemory</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Data.MessageSource.Interfaces\Data.MessageSource.Interfaces.csproj" />
+  </ItemGroup>
+
 </Project>
