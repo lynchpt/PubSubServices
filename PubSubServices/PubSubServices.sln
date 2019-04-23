@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28803.156
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceHost.MessagePublisher", "ServiceHost.MessagePublisher\ServiceHost.MessagePublisher.csproj", "{9CD3A931-6840-4D2A-8F2E-953ED5D69F9D}"
 EndProject
@@ -13,13 +13,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.MessageSource.InMemory
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model.PubSub", "Model.PubSub\Model.PubSub.csproj", "{FAF05792-6114-4FC8-9303-F5FD247E424D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.MessageSource.Interfaces", "Data.MessageSource.Interfaces\Data.MessageSource.Interfaces.csproj", "{6B7F4783-18A8-4002-B88F-4338C4FBCC74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.MessageSource.Interfaces", "Data.MessageSource.Interfaces\Data.MessageSource.Interfaces.csproj", "{6B7F4783-18A8-4002-B88F-4338C4FBCC74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model.Message.SampleTopic", "Model.Message.SampleTopic\Model.Message.SampleTopic.csproj", "{FCC1E346-AFE5-452B-8236-5E686369BB3A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model.Message.SampleTopic", "Model.Message.SampleTopic\Model.Message.SampleTopic.csproj", "{FCC1E346-AFE5-452B-8236-5E686369BB3A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.MessageSink.Interfaces", "Data.MessageSink.Interfaces\Data.MessageSink.Interfaces.csproj", "{6B9D3349-E903-4916-82B9-F441FF50C9A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.MessageSink.Interfaces", "Data.MessageSink.Interfaces\Data.MessageSink.Interfaces.csproj", "{6B9D3349-E903-4916-82B9-F441FF50C9A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.MessageSink.Log", "Data.MessageSink.Log\Data.MessageSink.Log.csproj", "{DF308932-C4D0-4004-8A5A-E57A1304D47E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.MessageSink.Log", "Data.MessageSink.Log\Data.MessageSink.Log.csproj", "{DF308932-C4D0-4004-8A5A-E57A1304D47E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model.MessageSource.Options", "Model.MessageSource.Options\Model.MessageSource.Options.csproj", "{5E192816-06D4-4877-A67C-203A3FA9BE5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model.MessageSink.Options", "Model.MessageSink.Options\Model.MessageSink.Options.csproj", "{49EFA226-959D-43C8-B4FA-97EEF9D29B05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.MessageSink.ServiceBus", "Data.MessageSink.ServiceBus\Data.MessageSink.ServiceBus.csproj", "{3F4FE1E1-CFA4-4705-B810-3E07F063DFDE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +69,18 @@ Global
 		{DF308932-C4D0-4004-8A5A-E57A1304D47E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF308932-C4D0-4004-8A5A-E57A1304D47E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF308932-C4D0-4004-8A5A-E57A1304D47E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E192816-06D4-4877-A67C-203A3FA9BE5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E192816-06D4-4877-A67C-203A3FA9BE5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E192816-06D4-4877-A67C-203A3FA9BE5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E192816-06D4-4877-A67C-203A3FA9BE5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49EFA226-959D-43C8-B4FA-97EEF9D29B05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49EFA226-959D-43C8-B4FA-97EEF9D29B05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49EFA226-959D-43C8-B4FA-97EEF9D29B05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49EFA226-959D-43C8-B4FA-97EEF9D29B05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F4FE1E1-CFA4-4705-B810-3E07F063DFDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F4FE1E1-CFA4-4705-B810-3E07F063DFDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F4FE1E1-CFA4-4705-B810-3E07F063DFDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F4FE1E1-CFA4-4705-B810-3E07F063DFDE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
