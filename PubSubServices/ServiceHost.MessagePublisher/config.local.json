@@ -1,0 +1,8 @@
+﻿{
+  "LoggingOptions": {
+    "LogFilePath": "ServiceHost.MessagePublisher.Log-{Date}.txt",
+    "AppComponentName": "ServiceHost.MessagePublisher",
+    "SeqApiKey": "Placeholder",
+    "SeqUrl": "Placeholder"
+  }
+}

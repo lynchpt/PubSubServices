@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.ServiceProcess;
 using System.Text;
-
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using PubSubServices.Data.MessageSink.Interfaces;
+using PubSubServices.Data.MessageSink.Log;
+using PubSubServices.Data.MessageSource.InMemory;
+using PubSubServices.Data.MessageSource.Interfaces;
 
 namespace MessagePublisherService
 {
@@ -21,15 +25,40 @@ namespace MessagePublisherService
         #endregion
 
         #region Constructors
-        public MessagePublisherScheduler(ILogger<MessagePublisherScheduler> logger,
-            IMessagePublisherService messagePublisherService)
+        //public MessagePublisherScheduler(ILogger<MessagePublisherScheduler> logger,
+        //    IMessagePublisherService messagePublisherService)
+        //{
+        //    _logger = logger;
+        //    _messagePublisherService = messagePublisherService;
+
+        //    ServiceName = _messagePublisherService.GetType().Name;
+        //    //timer
+        //    InitializeTimer();
+        //}
+
+        public MessagePublisherScheduler(ILogger<MessagePublisherScheduler> logger, IServiceCollection serviceCollection)
         {
             _logger = logger;
-            _messagePublisherService = messagePublisherService;
+
+            ConfigureDependencyInjection(serviceCollection);
+
+            IServiceProvider serviceProvider = serviceCollection.BuildServiceProvider();
+
+            _messagePublisherService = serviceProvider.GetService<IMessagePublisherService>();
+
 
             ServiceName = _messagePublisherService.GetType().Name;
             //timer
             InitializeTimer();
+        }
+
+        private void ConfigureDependencyInjection(IServiceCollection serviceCollection)
+        {
+            //serviceCollection.AddSingleton<ServiceBase, MessagePublisherScheduler>();
+
+            serviceCollection.AddSingleton<IOutgoingMessageSource, OutgoingMessageSource>();
+            serviceCollection.AddSingleton<IPubSubMessageSink, LogMessageSink>();
+            serviceCollection.AddSingleton<IMessagePublisherService, LogMessagePublisherService>();
         }
 
         private void OnElapsed(object sender, System.Timers.ElapsedEventArgs e)
