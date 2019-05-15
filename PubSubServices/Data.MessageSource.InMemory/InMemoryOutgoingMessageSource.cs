@@ -7,14 +7,14 @@ using System.Text;
 
 namespace PubSubServices.Data.MessageSource.InMemory
 {
-    public class OutgoingMessageSource : IOutgoingMessageSource
+    public class InMemoryOutgoingMessageSource : IOutgoingMessageSource
     {
         #region Class Variables
-        private readonly ILogger<OutgoingMessageSource> _logger;
+        private readonly ILogger<InMemoryOutgoingMessageSource> _logger;
         #endregion
 
         #region Constructors
-        public OutgoingMessageSource(ILogger<OutgoingMessageSource> logger)
+        public InMemoryOutgoingMessageSource(ILogger<InMemoryOutgoingMessageSource> logger)
         {
             _logger = logger;
         }
@@ -45,22 +45,22 @@ namespace PubSubServices.Data.MessageSource.InMemory
                     Body = GenerateMessageBody(),
                     BodyFullTypeName = "Model.Message.SampleTopic.SampleTopicMessageBody",
 
-                    TopicName = "SampleTopic",
+                    TopicName = "InsuranceBinderPremiumEstablished",
                     TopicNamespace = "DEV01",
 
                     PubSubSubmissionAttempts = 0,
                     WasSentToPubSub = false,
 
-                    MessageBodyVersion = "1.0.0",
-                    MessagePropertiesVersion = "1.0.0",
+                    MessageBodyVersion = "0.1.0",
+                    MessagePropertiesVersion = "0.1.0",
 
 
                     BeginDt = DateTime.UtcNow,
                     EndDt = null,
                     CreateDt = DateTime.UtcNow,
-                    CreateBy = nameof(OutgoingMessageSource),
+                    CreateBy = nameof(InMemoryOutgoingMessageSource),
                     UpdateDt = DateTime.UtcNow,
-                    UpdateBy = nameof(OutgoingMessageSource),
+                    UpdateBy = nameof(InMemoryOutgoingMessageSource),
                 }
             };
 

@@ -2,11 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace PubSubServices.Data.MessageSink.Interfaces
 {
     public interface IPubSubMessageSink
     {
-        IList<PubSubMessagePublishResult> PublishMessages(IList<OutgoingPubSubMessageDescription> messagesToPublish);
+        Task<IList<PubSubMessagePublishResult>> PublishMessagesAsync(IList<OutgoingPubSubMessageDescription> messagesToPublish);
     }
 }

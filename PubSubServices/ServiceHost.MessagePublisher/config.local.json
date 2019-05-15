@@ -4,5 +4,13 @@
     "AppComponentName": "ServiceHost.MessagePublisher",
     "SeqApiKey": "Placeholder",
     "SeqUrl": "Placeholder"
+  },
+  "KeyVaultConnectionInfoOptions": {
+    "ConnectionStringStore": "Placeholder",
+    "AuthorizationStore": "Placeholder",
+    "ConnectionStringName": "Placeholder"
+  },
+  "EnvironmentVariableConnectionInfoOptions": {
+    "ConnectionStringName": "pubsubservices-sb-ns:ConnectionString"
   }
 }

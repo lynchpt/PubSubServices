@@ -10,6 +10,7 @@ using PubSubServices.Data.MessageSink.Interfaces;
 
 using Microsoft.Extensions.Logging;
 using PubSubServices.Model.PubSub;
+using System.Threading.Tasks;
 
 namespace MessagePublisherService
 {
@@ -33,18 +34,20 @@ namespace MessagePublisherService
         #endregion
 
         #region IMessagePublisherService Implementation
-        public void PublishMessages()
+        public async Task<IList<PubSubMessagePublishResult>> PublishMessagesAsync()
         {
             //first we have to get from the source the messages we are going to publish to the sink
             IList<OutgoingPubSubMessageDescription> outgoingMessages = _outgoingMessageSource.GetOutgoingMessages();
 
             //now publish them to the sink
-            IList<PubSubMessagePublishResult> publishResult = _pubSubMessageSink.PublishMessages(outgoingMessages);
+            IList<PubSubMessagePublishResult> publishResult = await _pubSubMessageSink.PublishMessagesAsync(outgoingMessages);
 
             //TODO: inform the MessageSource of the publish status (successful or not) of each message;
 
             int successfullyPublished = publishResult.Where(r => r.WasSuccessfullyPublished == true).Select(r => r).ToList().Count;
             _logger.LogInformation($"attempted to publish {outgoingMessages?.Count}; successfully published {successfullyPublished}");
+
+            return publishResult;
         }
 
         //public void PublishMessages()

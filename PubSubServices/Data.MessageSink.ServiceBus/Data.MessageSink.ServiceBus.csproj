@@ -9,12 +9,19 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Azure.KeyVault" Version="3.0.3" />
     <PackageReference Include="Microsoft.Azure.ServiceBus" Version="3.4.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="2.2.0" />
     <PackageReference Include="Microsoft.IdentityModel.Clients.ActiveDirectory" Version="4.5.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Data.MessageSink.Interfaces\Data.MessageSink.Interfaces.csproj" />
     <ProjectReference Include="..\Model.MessageSink.Options\Model.MessageSink.Options.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.Extensions.Options">
+      <HintPath>C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.extensions.options\2.2.0\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

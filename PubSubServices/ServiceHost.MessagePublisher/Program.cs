@@ -42,7 +42,7 @@ namespace PubSubServices.ServiceHost.MessagePublisher
             //basic service wireup
             _configuration = LoadConfiguration();
             _serviceCollection = InitializeServiceCollection();
-            ConfigureOptions(_serviceCollection);
+            ConfigureOptions(_serviceCollection, _configuration);
             ConfigureLogger(_serviceCollection, _configuration);
             ConfigureDependencyInjection(_serviceCollection);
             _serviceProvider = _serviceCollection.BuildServiceProvider();
@@ -122,11 +122,9 @@ namespace PubSubServices.ServiceHost.MessagePublisher
             return serviceCollection;
         }
 
-        private static void ConfigureOptions(IServiceCollection serviceCollection)
+        private static void ConfigureOptions(IServiceCollection serviceCollection, IConfiguration configuration)
         {
-            serviceCollection.AddOptions();
-
-            _serviceCollection.Configure<LoggingOptions>(_configuration.GetSection(nameof(LoggingOptions)));
+            serviceCollection.Configure<LoggingOptions>(configuration.GetSection(nameof(LoggingOptions)));
         }
 
         private static void ConfigureLogger(IServiceCollection serviceCollection, IConfiguration configuration)

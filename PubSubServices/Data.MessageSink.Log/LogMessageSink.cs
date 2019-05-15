@@ -4,6 +4,7 @@ using PubSubServices.Model.PubSub;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace PubSubServices.Data.MessageSink.Log
 {
@@ -22,11 +23,11 @@ namespace PubSubServices.Data.MessageSink.Log
 
         #region IPubSubMessageSink Implementation
 
-        public IList<PubSubMessagePublishResult> PublishMessages(IList<OutgoingPubSubMessageDescription> messagesToPublish)
+        public Task<IList<PubSubMessagePublishResult>> PublishMessagesAsync(IList<OutgoingPubSubMessageDescription> messagesToPublish)
         {
             IList<PubSubMessagePublishResult> publishResults = new List<PubSubMessagePublishResult>();
 
-            if (messagesToPublish == null) return publishResults;
+            if (messagesToPublish == null || messagesToPublish.Count == 0) return Task.FromResult(publishResults);
 
             foreach (var message in messagesToPublish)
             {
@@ -37,7 +38,7 @@ namespace PubSubServices.Data.MessageSink.Log
                 publishResults.Add(new PubSubMessagePublishResult() { MessageId = message.MessageId, WasSuccessfullyPublished = true });
             }
 
-            return publishResults;
+            return Task.FromResult(publishResults);
         }
 
         #endregion

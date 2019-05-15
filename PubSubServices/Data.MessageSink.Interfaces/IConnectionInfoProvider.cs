@@ -12,5 +12,7 @@ namespace PubSubServices.Data.MessageSink.Interfaces
             string authorizationStore,
             string connectionStringName,
             ICredentialProvider credentialProvider );
+
+        Task<string> GetConnectionStringAsync();
     }
 }

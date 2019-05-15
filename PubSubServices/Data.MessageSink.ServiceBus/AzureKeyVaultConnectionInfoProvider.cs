@@ -20,7 +20,7 @@ namespace PubSubServicesData.MessageSink.ServiceBus
     /// Calling Azure Key Vault has several steps that are not immediately obvious, so this sample shows you how to make the call, and 
     /// provides a starting point for your own implementation.
     /// </summary>
-    public class ServiceBusConnectionInfoProvider : IConnectionInfoProvider
+    public class AzureKeyVaultConnectionInfoProvider : IConnectionInfoProvider
     {
         //
         //Getting a connection string from Azure Key Vault using a token provided by an Azure Active Directory application requires 
@@ -134,6 +134,11 @@ namespace PubSubServicesData.MessageSink.ServiceBus
             string authorizationStore,
             string connectionStringName,
             ICredentialProvider credentialProvider )
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<string> GetConnectionStringAsync()
         {
             throw new NotImplementedException();
         }

@@ -30,6 +30,7 @@
     <ProjectReference Include="..\Data.MessageSource.Interfaces\Data.MessageSource.Interfaces.csproj" />
     <ProjectReference Include="..\HostedService.Interfaces\HostedService.Interfaces.csproj" />
     <ProjectReference Include="..\MessagePublisherService\MessagePublisherService.csproj" />
+    <ProjectReference Include="..\Model.MessageSink.Options\Model.MessageSink.Options.csproj" />
   </ItemGroup>
 
   <ItemGroup>
