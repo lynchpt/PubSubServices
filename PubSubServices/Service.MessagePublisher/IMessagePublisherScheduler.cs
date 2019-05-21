@@ -4,7 +4,7 @@ using System.Text;
 
 using HostedService.Interfaces;
 
-namespace MessagePublisherService
+namespace PubSubServices.Service.MessagePublisher
 {
     public interface IMessagePublisherScheduler : IConsoleHostedService
     {

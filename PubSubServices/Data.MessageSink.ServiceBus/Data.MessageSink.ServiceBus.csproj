@@ -15,7 +15,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Data.MessageSink.Interfaces\Data.MessageSink.Interfaces.csproj" />
-    <ProjectReference Include="..\Model.MessageSink.Options\Model.MessageSink.Options.csproj" />
   </ItemGroup>
 
   <ItemGroup>

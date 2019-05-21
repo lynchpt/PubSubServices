@@ -1,10 +1,10 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.2</TargetFramework>
-    <AssemblyName>PubSubServices.ServiceHost.MessagePublisher</AssemblyName>
-    <RootNamespace>PubSubServices.ServiceHost.MessagePublisher</RootNamespace>
+    <AssemblyName>PubSubServices.ServiceHost.MessageHandler</AssemblyName>
+    <RootNamespace>PubSubServices.ServiceHost.MessageHandler</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,24 +20,6 @@
     <PackageReference Include="Serilog.Extensions.Logging" Version="2.0.4" />
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
     <PackageReference Include="Serilog.Sinks.RollingFile" Version="3.3.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Data.MessageSink.Interfaces\Data.MessageSink.Interfaces.csproj" />
-    <ProjectReference Include="..\Data.MessageSink.Log\Data.MessageSink.Log.csproj" />
-    <ProjectReference Include="..\Data.MessageSource.InMemory\Data.MessageSource.InMemory.csproj" />
-    <ProjectReference Include="..\Data.MessageSource.Interfaces\Data.MessageSource.Interfaces.csproj" />
-    <ProjectReference Include="..\HostedService.Interfaces\HostedService.Interfaces.csproj" />
-    <ProjectReference Include="..\Service.MessagePublisher\Service.MessagePublisher.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="config.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="config.local.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 
 </Project>

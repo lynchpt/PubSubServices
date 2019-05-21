@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PubSubServices.Model.MessageSink.Options
+namespace PubSubServicesData.MessageSink.ServiceBus
 {
-    public class EnvironmentVariableConnectionInfoOptions
+    public class ServiceBusEnvVarConnectionInfoOptions
     {
         public string ConnectionStringName { get; set; }
     }

@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyName>PubSubServices.MessagePublisherService</AssemblyName>
+    <AssemblyName>PubSubServices.Service.MessagePublisher</AssemblyName>
     <RootNamespace>PubSubServices.MessagePublisherService</RootNamespace>
   </PropertyGroup>
 
@@ -14,7 +14,7 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="2.2.0" />
-    <PackageReference Include="Microsoft.Windows.Compatibility" Version="2.0.1" />
+    <PackageReference Include="Microsoft.Windows.Compatibility" Version="2.1.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,8 +24,6 @@
     <ProjectReference Include="..\Data.MessageSource.InMemory\Data.MessageSource.InMemory.csproj" />
     <ProjectReference Include="..\Data.MessageSource.Interfaces\Data.MessageSource.Interfaces.csproj" />
     <ProjectReference Include="..\HostedService.Interfaces\HostedService.Interfaces.csproj" />
-    <ProjectReference Include="..\Model.MessageSink.Options\Model.MessageSink.Options.csproj" />
-    <ProjectReference Include="..\Model.MessageSource.Options\Model.MessageSource.Options.csproj" />
     <ProjectReference Include="..\Model.PubSub\Model.PubSub.csproj" />
   </ItemGroup>
 

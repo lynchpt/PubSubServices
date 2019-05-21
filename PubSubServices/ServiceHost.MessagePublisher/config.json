@@ -10,7 +10,7 @@
     "AuthorizationStore": "Placeholder",
     "ConnectionStringName": "Placeholder"
   },
-  "EnvironmentVariableConnectionInfoOptions": {
+  "ServiceBusEnvVarConnectionInfoOptions": {
     "ConnectionStringName": "pubsubservices-sb-ns:ConnectionString"
   }
 }

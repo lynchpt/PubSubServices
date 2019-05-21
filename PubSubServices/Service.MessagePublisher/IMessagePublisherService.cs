@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using HostedService.Interfaces;
 using PubSubServices.Model.PubSub;
 
-namespace MessagePublisherService
+namespace PubSubServices.Service.MessagePublisher
 {
     public interface IMessagePublisherService
     {
