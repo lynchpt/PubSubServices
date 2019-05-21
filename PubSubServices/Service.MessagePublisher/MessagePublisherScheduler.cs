@@ -7,10 +7,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using PubSubServices.Data.MessageSink.Interfaces;
-using PubSubServices.Data.MessageSink.Log;
 using PubSubServices.Data.MessageSource.InMemory;
 using PubSubServices.Data.MessageSource.Interfaces;
 using PubSubServices.Model.PubSub;
+
 using PubSubServicesData.MessageSink.ServiceBus;
 
 namespace PubSubServices.Service.MessagePublisher
@@ -75,6 +75,7 @@ namespace PubSubServices.Service.MessagePublisher
         private static void ConfigureOptions(IServiceCollection serviceCollection, IConfiguration configuration)
         {
             serviceCollection.Configure<ServiceBusEnvVarConnectionInfoOptions>(configuration.GetSection(nameof(ServiceBusEnvVarConnectionInfoOptions)));
+            serviceCollection.Configure<KeyVaultConnectionInfoOptions>(configuration.GetSection(nameof(KeyVaultConnectionInfoOptions)));
         }
 
         private void ConfigureDependencyInjection(IServiceCollection serviceCollection)

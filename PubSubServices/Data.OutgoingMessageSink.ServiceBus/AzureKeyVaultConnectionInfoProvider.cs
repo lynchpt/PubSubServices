@@ -4,9 +4,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Microsoft.Azure.KeyVault;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
 using PubSubServices.Data.MessageSink.Interfaces;
+
 
 namespace PubSubServicesData.MessageSink.ServiceBus
 {
@@ -22,6 +25,7 @@ namespace PubSubServicesData.MessageSink.ServiceBus
     /// </summary>
     public class AzureKeyVaultConnectionInfoProvider : IConnectionInfoProvider
     {
+        #region Class Variables
         //
         //Getting a connection string from Azure Key Vault using a token provided by an Azure Active Directory application requires 
         //a UserCredential object. In normal operation (prod and pre-prod), the identity of the running process will be used to create that
@@ -45,6 +49,21 @@ namespace PubSubServicesData.MessageSink.ServiceBus
         //
         //This application identifier is not security sensitive and can be stored in a config file
         private string _azureADApplicationId;
+
+        private ILogger<AzureKeyVaultConnectionInfoProvider> _logger;
+        KeyVaultConnectionInfoOptions _connectionInfoOptions;
+        private ICredentialProvider _credentialProvider;
+        #endregion
+
+        #region Constructors
+        public AzureKeyVaultConnectionInfoProvider(ILogger<AzureKeyVaultConnectionInfoProvider> logger, 
+            IOptions<KeyVaultConnectionInfoOptions> optionsAccessor, ICredentialProvider credentialProvider)
+        {
+            _logger = logger;
+            _connectionInfoOptions = optionsAccessor?.Value;
+            _credentialProvider = credentialProvider;
+        }
+        #endregion
 
         /// <summary>
         /// 
@@ -129,18 +148,27 @@ namespace PubSubServicesData.MessageSink.ServiceBus
             return result.AccessToken;
         }
 
+        #region IConnectionInfoProvider Implementation
+
         public Task<string> GetConnectionStringAsync(
             string connectionStringStore,
             string authorizationStore,
             string connectionStringName,
-            ICredentialProvider credentialProvider )
+            ICredentialProvider credentialProvider)
         {
             throw new NotImplementedException();
         }
 
-        public Task<string> GetConnectionStringAsync()
+        public async Task<string> GetConnectionStringAsync()
         {
-            throw new NotImplementedException();
-        }
+            string connectionString = await GetAzureServiceBusConnectionStringAsync(
+                _connectionInfoOptions.ConnectionStringStore,
+                _connectionInfoOptions.AuthorizationStore,
+                _connectionInfoOptions.ConnectionStringName,
+                _credentialProvider);
+
+            return connectionString;
+        } 
+        #endregion
     }
 }

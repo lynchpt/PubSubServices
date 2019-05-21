@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyName>PubSubServices.Data.MessageSink.ServiceBus</AssemblyName>
-    <RootNamespace>PubSubServicesData.MessageSink.ServiceBus</RootNamespace>
+    <AssemblyName>PubSubServices.Data.OutgoingMessageSink.ServiceBus</AssemblyName>
+    <RootNamespace>PubSubServicesData.OutgoingMessageSink.ServiceBus</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,10 +11,11 @@
     <PackageReference Include="Microsoft.Azure.ServiceBus" Version="3.4.0" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="2.2.0" />
     <PackageReference Include="Microsoft.IdentityModel.Clients.ActiveDirectory" Version="4.5.1" />
+    <PackageReference Include="Microsoft.Windows.Compatibility" Version="2.1.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Data.MessageSink.Interfaces\Data.MessageSink.Interfaces.csproj" />
+    <ProjectReference Include="..\Data.OutgoingMessageSink.Interfaces\Data.OutgoingMessageSink.Interfaces.csproj" />
   </ItemGroup>
 
   <ItemGroup>

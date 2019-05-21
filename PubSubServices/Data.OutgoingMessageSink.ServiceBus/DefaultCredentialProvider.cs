@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Text;
 
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
+
 
 using PubSubServices.Data.MessageSink.Interfaces;
 
@@ -22,14 +24,14 @@ namespace PubSubServicesData.MessageSink.ServiceBus
         /// 
         public UserCredential GetUserCredential()
         {
-            return new UserCredential();
+            return new UserCredential("corp\\lynchp");
         }
 
         /// THIS IS A HACK IMPLEMENTATION ONLY FOR USE BEFORE FMG ACTIVE DIRECTORY IS SYNCED WITH AZURE AD!!
         /// DELETE WHEN FMG ACTIVE DIRECTORY IS SYNCED WITH AZURE AD!!
         //public UserCredential GetUserCredential()
         //{
-        //    //return new UserPasswordCredential("someuser@someuserfmglobal.onmicrosoft.com", "Woco1682");
+        //    //return new UserPasswordCredential("someuser@someuserfmglobal.onmicrosoft.com", "somepassword");
         //    
         //}
        
