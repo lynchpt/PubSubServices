@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 
 namespace PubSubServicesData.MessageSink.ServiceBus
 {
-    public class ServiceBusMessageSink : IPubSubMessageSink
+    public class ServiceBusOutgoingMessageSink : IOutgoingMessageSink
     {
         #region Class Variables
-        private readonly ILogger<ServiceBusMessageSink> _logger;
+        private readonly ILogger<ServiceBusOutgoingMessageSink> _logger;
         private readonly IConnectionInfoProvider _connectionInfoProvider;
         private string _connectionString = null;
         private IDictionary<string, IMessageSender> _messageSenders = new Dictionary<string, IMessageSender>();
@@ -25,14 +25,14 @@ namespace PubSubServicesData.MessageSink.ServiceBus
         #endregion
 
         #region Constructors
-        public ServiceBusMessageSink(ILogger<ServiceBusMessageSink> logger, IConnectionInfoProvider connectionInfoProvider)
+        public ServiceBusOutgoingMessageSink(ILogger<ServiceBusOutgoingMessageSink> logger, IConnectionInfoProvider connectionInfoProvider)
         {
             _logger = logger;
             _connectionInfoProvider = connectionInfoProvider;
         }
         #endregion
 
-        #region IPubSubMessageSink Implementation
+        #region IOutgoingMessageSink Implementation
         public async Task<IList<PubSubMessagePublishResult>> PublishMessagesAsync(IList<OutgoingPubSubMessageDescription> messagesToPublish)
         {
             IList<PubSubMessagePublishResult> messagePublishResults = new List<PubSubMessagePublishResult>();

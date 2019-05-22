@@ -9,7 +9,7 @@ using PubSubServices.Data.MessageSink.Interfaces;
 
 namespace PubSubServices.Data.MessageSink.Log
 {
-    public class LogOutgoingMessageSink : IPubSubMessageSink
+    public class LogOutgoingMessageSink : IOutgoingMessageSink
     {
         #region Class Variables
         private readonly ILogger<LogOutgoingMessageSink> _logger;
@@ -22,7 +22,7 @@ namespace PubSubServices.Data.MessageSink.Log
         }
         #endregion
 
-        #region IPubSubMessageSink Implementation
+        #region IOutgoingMessageSink Implementation
 
         public Task<IList<PubSubMessagePublishResult>> PublishMessagesAsync(IList<OutgoingPubSubMessageDescription> messagesToPublish)
         {

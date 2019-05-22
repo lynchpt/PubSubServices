@@ -149,7 +149,7 @@ namespace PubSubServices.ServiceHost.MessagePublisher
             serviceCollection.AddSingleton<ServiceBase, MessagePublisherScheduler>();
             //move to MessagePublisherScheduler
             //serviceCollection.AddSingleton<IOutgoingMessageSource, OutgoingMessageSource>();
-            //serviceCollection.AddSingleton<IPubSubMessageSink, LogMessageSink>();
+            //serviceCollection.AddSingleton<IOutgoingMessageSink, LogMessageSink>();
             //serviceCollection.AddSingleton<IMessagePublisherService, LogMessagePublisherService>();
 
             //_serviceProvider = serviceCollection.BuildServiceProvider();

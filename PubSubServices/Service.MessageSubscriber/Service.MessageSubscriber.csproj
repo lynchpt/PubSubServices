@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>PubSubServices.Service.MessageSubscriber</AssemblyName>
+    <RootNamespace>PubSubServices.Service.MessageSubscriber</RootNamespace>
+  </PropertyGroup>
+
+</Project>

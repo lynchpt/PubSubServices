@@ -19,17 +19,17 @@ namespace PubSubServices.Service.MessagePublisher
         #region Class Variables
         private readonly ILogger<MessagePublisherService> _logger;
         private readonly IOutgoingMessageSource _outgoingMessageSource;
-        private readonly IPubSubMessageSink _pubSubMessageSink;
+        private readonly IOutgoingMessageSink _outgoingMessageSink;
         #endregion
 
         #region Constructors
 
         public MessagePublisherService(ILogger<MessagePublisherService> logger, IOutgoingMessageSource outgoingMessageSource,
-            IPubSubMessageSink pubSubMessageSink)
+            IOutgoingMessageSink outgoingMessageSink)
         {
             _logger = logger;
             _outgoingMessageSource = outgoingMessageSource;
-            _pubSubMessageSink = pubSubMessageSink;
+            _outgoingMessageSink = outgoingMessageSink;
         }
         #endregion
 
@@ -40,7 +40,7 @@ namespace PubSubServices.Service.MessagePublisher
             IList<OutgoingPubSubMessageDescription> outgoingMessages = _outgoingMessageSource.GetOutgoingMessages();
 
             //now publish them to the sink
-            IList<PubSubMessagePublishResult> publishResult = await _pubSubMessageSink.PublishMessagesAsync(outgoingMessages);
+            IList<PubSubMessagePublishResult> publishResult = await _outgoingMessageSink.PublishMessagesAsync(outgoingMessages);
 
             //TODO: inform the MessageSource of the publish status (successful or not) of each message;
 

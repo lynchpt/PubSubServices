@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>PubSubServices.Data.IncomingMessageSink.Log</AssemblyName>
+    <RootNamespace>PubSubServices.Data.IncomingMessageSink.Log</RootNamespace>
   </PropertyGroup>
 
 </Project>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PubSubServices.Data.MessageSink.Interfaces
 {
-    public interface IPubSubMessageSink
+    public interface IOutgoingMessageSink
     {
         Task<IList<PubSubMessagePublishResult>> PublishMessagesAsync(IList<OutgoingPubSubMessageDescription> messagesToPublish);
     }

@@ -65,6 +65,20 @@ namespace PubSubServicesData.MessageSink.ServiceBus
         }
         #endregion
 
+        #region IConnectionInfoProvider Implementation
+        public async Task<string> GetConnectionStringAsync()
+        {
+            string connectionString = await GetAzureServiceBusConnectionStringAsync(
+                _connectionInfoOptions.ConnectionStringStore,
+                _connectionInfoOptions.AuthorizationStore,
+                _connectionInfoOptions.ConnectionStringName,
+                _credentialProvider);
+
+            return connectionString;
+        }
+        #endregion
+
+        #region Private Methods
         /// <summary>
         /// 
         /// </summary>
@@ -77,7 +91,7 @@ namespace PubSubServicesData.MessageSink.ServiceBus
         /// <param name="credentialProvider">a class implementing the sample ICredentialProvider interface. The caller provides
         /// the particular implementation in which they have loaded the UserCredential object they got from somewhere.</param>
         /// <returns></returns>
-        public async Task<string> GetAzureServiceBusConnectionStringAsync(string keyVaultUrl, string azureADApplicationId, string secretName,
+        private async Task<string> GetAzureServiceBusConnectionStringAsync(string keyVaultUrl, string azureADApplicationId, string secretName,
             ICredentialProvider credentialProvider)
         {
 
@@ -146,28 +160,6 @@ namespace PubSubServicesData.MessageSink.ServiceBus
             }
 
             return result.AccessToken;
-        }
-
-        #region IConnectionInfoProvider Implementation
-
-        public Task<string> GetConnectionStringAsync(
-            string connectionStringStore,
-            string authorizationStore,
-            string connectionStringName,
-            ICredentialProvider credentialProvider)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<string> GetConnectionStringAsync()
-        {
-            string connectionString = await GetAzureServiceBusConnectionStringAsync(
-                _connectionInfoOptions.ConnectionStringStore,
-                _connectionInfoOptions.AuthorizationStore,
-                _connectionInfoOptions.ConnectionStringName,
-                _credentialProvider);
-
-            return connectionString;
         } 
         #endregion
     }

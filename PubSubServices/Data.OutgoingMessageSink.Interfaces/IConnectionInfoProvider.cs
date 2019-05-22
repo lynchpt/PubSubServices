@@ -7,12 +7,6 @@ namespace PubSubServices.Data.MessageSink.Interfaces
 {
     public interface IConnectionInfoProvider
     {
-        Task<string> GetConnectionStringAsync(
-            string connectionStringStore,
-            string authorizationStore,
-            string connectionStringName,
-            ICredentialProvider credentialProvider );
-
         Task<string> GetConnectionStringAsync();
     }
 }
