@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PubSubServices.Data.Message.Interfaces
+namespace PubSubServices.Data.OutgoingMessage.Interfaces
 {
     public interface IOutgoingMessageSink
     {

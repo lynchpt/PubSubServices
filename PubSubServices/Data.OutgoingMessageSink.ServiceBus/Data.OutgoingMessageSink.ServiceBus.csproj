@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Data.Message.Interfaces\Data.Message.Interfaces.csproj" />
+    <ProjectReference Include="..\Data.OutgoingMessage.Interfaces\Data.OutgoingMessage.Interfaces.csproj" />
   </ItemGroup>
 
   <ItemGroup>

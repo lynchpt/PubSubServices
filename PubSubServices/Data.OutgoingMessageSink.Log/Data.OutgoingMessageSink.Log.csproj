@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Data.Message.Interfaces\Data.Message.Interfaces.csproj" />
+    <ProjectReference Include="..\Data.OutgoingMessage.Interfaces\Data.OutgoingMessage.Interfaces.csproj" />
     <ProjectReference Include="..\Model.PubSub\Model.PubSub.csproj" />
   </ItemGroup>
 
