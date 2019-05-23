@@ -4,9 +4,7 @@ using System.Net;
 using System.Text;
 
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
-
-
-using PubSubServices.Data.MessageSink.Interfaces;
+using PubSubServices.Data.Message.Interfaces;
 
 namespace PubSubServicesData.MessageSink.ServiceBus
 {

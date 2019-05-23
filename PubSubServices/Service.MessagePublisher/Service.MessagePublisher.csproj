@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Data.MessageSource.Interfaces\Data.MessageSource.Interfaces.csproj" />
+    <ProjectReference Include="..\Data.OutgoingMessage.Interfaces\Data.OutgoingMessage.Interfaces.csproj" />
     <ProjectReference Include="..\Data.OutgoingMessageSink.Log\Data.OutgoingMessageSink.Log.csproj" />
     <ProjectReference Include="..\Data.OutgoingMessageSink.ServiceBus\Data.OutgoingMessageSink.ServiceBus.csproj" />
     <ProjectReference Include="..\Data.OutgoingMessageSource.InMemory\Data.OutgoingMessageSource.InMemory.csproj" />

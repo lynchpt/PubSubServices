@@ -1,9 +1,7 @@
 ﻿using PubSubServices.Model.PubSub;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
-namespace PubSubServices.Data.MessageSource.Interfaces
+namespace PubSubServices.Data.OutgoingMessage.Interfaces
 {
     public interface IOutgoingMessageSource
     {

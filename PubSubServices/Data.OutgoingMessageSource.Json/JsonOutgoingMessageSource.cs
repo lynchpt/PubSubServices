@@ -4,7 +4,7 @@ using System.Text;
 
 using Microsoft.Extensions.Logging;
 
-using PubSubServices.Data.MessageSource.Interfaces;
+using PubSubServices.Data.OutgoingMessage.Interfaces;
 using PubSubServices.Model.PubSub;
 
 namespace PubSubServices.Data.OutgoingMessageSource.Json

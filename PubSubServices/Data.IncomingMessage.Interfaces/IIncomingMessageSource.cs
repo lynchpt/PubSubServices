@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace PubSubServices.Data.MessageSource.Interfaces
+namespace PubSubServices.Data.IncomingMessage.Interfaces
 {
     public interface IIncomingMessageSource
     {

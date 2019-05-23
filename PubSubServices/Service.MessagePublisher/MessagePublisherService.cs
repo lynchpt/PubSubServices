@@ -4,13 +4,13 @@ using System.IO;
 using System.ServiceProcess;
 using System.Text;
 using System.Linq;
-using PubSubServices.Data.MessageSource.Interfaces;
-using PubSubServices.Data.MessageSink.Interfaces;
 
 
 using Microsoft.Extensions.Logging;
 using PubSubServices.Model.PubSub;
 using System.Threading.Tasks;
+using PubSubServices.Data.Message.Interfaces;
+using PubSubServices.Data.OutgoingMessage.Interfaces;
 
 namespace PubSubServices.Service.MessagePublisher
 {

@@ -1,15 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.489
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.452
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceHost.MessagePublisher", "ServiceHost.MessagePublisher\ServiceHost.MessagePublisher.csproj", "{9CD3A931-6840-4D2A-8F2E-953ED5D69F9D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HostedService.Interfaces", "HostedService.Interfaces\HostedService.Interfaces.csproj", "{B7E1F0BC-485B-4D44-A911-C0C369088247}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model.PubSub", "Model.PubSub\Model.PubSub.csproj", "{FAF05792-6114-4FC8-9303-F5FD247E424D}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.MessageSource.Interfaces", "Data.MessageSource.Interfaces\Data.MessageSource.Interfaces.csproj", "{6B7F4783-18A8-4002-B88F-4338C4FBCC74}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model.Message.SampleTopic", "Model.Message.SampleTopic\Model.Message.SampleTopic.csproj", "{FCC1E346-AFE5-452B-8236-5E686369BB3A}"
 EndProject
@@ -25,23 +23,27 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.OutgoingMessageSink.Se
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.OutgoingMessageSink.Log", "Data.OutgoingMessageSink.Log\Data.OutgoingMessageSink.Log.csproj", "{95EC36AF-A60E-4BF3-83D1-799B08201C38}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.OutgoingMessageSink.Interfaces", "Data.OutgoingMessageSink.Interfaces\Data.OutgoingMessageSink.Interfaces.csproj", "{AD79234E-66AD-4EDA-8E2E-3AEBBD800A78}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.OutgoingMessageSource.Json", "Data.OutgoingMessageSource.Json\Data.OutgoingMessageSource.Json.csproj", "{498B0086-5C17-4DBC-B351-2D5D17A8072C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.OutgoingMessageSource.Json", "Data.OutgoingMessageSource.Json\Data.OutgoingMessageSource.Json.csproj", "{498B0086-5C17-4DBC-B351-2D5D17A8072C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.IncomingMessageSink.Interfaces", "Data.IncomingMessageSink.Interfaces\Data.IncomingMessageSink.Interfaces.csproj", "{C8C76291-80FE-499B-9D8E-4C3497D319BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.IncomingMessageSink.Interfaces", "Data.IncomingMessageSink.Interfaces\Data.IncomingMessageSink.Interfaces.csproj", "{C8C76291-80FE-499B-9D8E-4C3497D319BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.IncomingMessageSink.Log", "Data.IncomingMessageSink.Log\Data.IncomingMessageSink.Log.csproj", "{E17B38C3-CC67-4C8E-8036-6F47736421A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.IncomingMessageSink.Log", "Data.IncomingMessageSink.Log\Data.IncomingMessageSink.Log.csproj", "{E17B38C3-CC67-4C8E-8036-6F47736421A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.IncomingMessageSink.Db", "Data.IncomingMessageSink.Db\Data.IncomingMessageSink.Db.csproj", "{B69F778C-5382-4378-B6AC-5EFB9F7A1ECF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.IncomingMessageSink.Db", "Data.IncomingMessageSink.Db\Data.IncomingMessageSink.Db.csproj", "{B69F778C-5382-4378-B6AC-5EFB9F7A1ECF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.IncomingMessageSource.Json", "Data.IncomingMessageSource.Json\Data.IncomingMessageSource.Json.csproj", "{DCAF1C73-9965-441F-BEEC-718B4F07CC87}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.IncomingMessageSource.Json", "Data.IncomingMessageSource.Json\Data.IncomingMessageSource.Json.csproj", "{DCAF1C73-9965-441F-BEEC-718B4F07CC87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.IncomingMessageSource.ServiceBus", "Data.IncomingMessageSource.ServiceBus\Data.IncomingMessageSource.ServiceBus.csproj", "{535F178F-D091-49F2-87CE-D7EA25C41177}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.IncomingMessageSource.ServiceBus", "Data.IncomingMessageSource.ServiceBus\Data.IncomingMessageSource.ServiceBus.csproj", "{535F178F-D091-49F2-87CE-D7EA25C41177}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service.MessageSubscriber", "Service.MessageSubscriber\Service.MessageSubscriber.csproj", "{14034122-5D5C-416C-88EE-DBBA5DA4AF3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.MessageSubscriber", "Service.MessageSubscriber\Service.MessageSubscriber.csproj", "{14034122-5D5C-416C-88EE-DBBA5DA4AF3B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service.MessageHandler", "Service.MessageHandler\Service.MessageHandler.csproj", "{FF74645C-9EAE-4415-813F-55EE998AA9CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.MessageHandler", "Service.MessageHandler\Service.MessageHandler.csproj", "{FF74645C-9EAE-4415-813F-55EE998AA9CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.Message.Interfaces", "Data.Message.Interfaces\Data.Message.Interfaces.csproj", "{34BD75AF-7523-47AA-A35A-1AADB855E5FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.OutgoingMessage.Interfaces", "Data.OutgoingMessage.Interfaces\Data.OutgoingMessage.Interfaces.csproj", "{7B1F2981-EEA6-4E00-8944-63CF35157DE6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.IncomingMessage.Interfaces", "Data.IncomingMessage.Interfaces\Data.IncomingMessage.Interfaces.csproj", "{21FD838B-A7C9-4987-9E11-A54DDC232624}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,10 +63,6 @@ Global
 		{FAF05792-6114-4FC8-9303-F5FD247E424D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FAF05792-6114-4FC8-9303-F5FD247E424D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FAF05792-6114-4FC8-9303-F5FD247E424D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6B7F4783-18A8-4002-B88F-4338C4FBCC74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6B7F4783-18A8-4002-B88F-4338C4FBCC74}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6B7F4783-18A8-4002-B88F-4338C4FBCC74}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6B7F4783-18A8-4002-B88F-4338C4FBCC74}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FCC1E346-AFE5-452B-8236-5E686369BB3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FCC1E346-AFE5-452B-8236-5E686369BB3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCC1E346-AFE5-452B-8236-5E686369BB3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -93,10 +91,6 @@ Global
 		{95EC36AF-A60E-4BF3-83D1-799B08201C38}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95EC36AF-A60E-4BF3-83D1-799B08201C38}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95EC36AF-A60E-4BF3-83D1-799B08201C38}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AD79234E-66AD-4EDA-8E2E-3AEBBD800A78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AD79234E-66AD-4EDA-8E2E-3AEBBD800A78}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AD79234E-66AD-4EDA-8E2E-3AEBBD800A78}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AD79234E-66AD-4EDA-8E2E-3AEBBD800A78}.Release|Any CPU.Build.0 = Release|Any CPU
 		{498B0086-5C17-4DBC-B351-2D5D17A8072C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{498B0086-5C17-4DBC-B351-2D5D17A8072C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{498B0086-5C17-4DBC-B351-2D5D17A8072C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -129,6 +123,18 @@ Global
 		{FF74645C-9EAE-4415-813F-55EE998AA9CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF74645C-9EAE-4415-813F-55EE998AA9CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF74645C-9EAE-4415-813F-55EE998AA9CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34BD75AF-7523-47AA-A35A-1AADB855E5FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34BD75AF-7523-47AA-A35A-1AADB855E5FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34BD75AF-7523-47AA-A35A-1AADB855E5FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34BD75AF-7523-47AA-A35A-1AADB855E5FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B1F2981-EEA6-4E00-8944-63CF35157DE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B1F2981-EEA6-4E00-8944-63CF35157DE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B1F2981-EEA6-4E00-8944-63CF35157DE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B1F2981-EEA6-4E00-8944-63CF35157DE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21FD838B-A7C9-4987-9E11-A54DDC232624}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21FD838B-A7C9-4987-9E11-A54DDC232624}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21FD838B-A7C9-4987-9E11-A54DDC232624}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21FD838B-A7C9-4987-9E11-A54DDC232624}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

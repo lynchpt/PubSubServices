@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Data.OutgoingMessageSink.Interfaces\Data.OutgoingMessageSink.Interfaces.csproj" />
+    <ProjectReference Include="..\Data.Message.Interfaces\Data.Message.Interfaces.csproj" />
     <ProjectReference Include="..\Model.PubSub\Model.PubSub.csproj" />
   </ItemGroup>
 

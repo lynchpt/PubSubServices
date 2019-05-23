@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyName>PubSubServices.Data.MessageSource.Interfaces</AssemblyName>
-    <RootNamespace>PubSubServices.Data.MessageSource.Interfaces</RootNamespace>
+    <AssemblyName>PubSubServices.Data.IncomingMessage.Interfaces</AssemblyName>
+    <RootNamespace>PubSubServices.Data.IncomingMessage.Interfaces</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

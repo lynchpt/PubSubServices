@@ -4,7 +4,7 @@ using System.Text;
 
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
-namespace PubSubServices.Data.MessageSink.Interfaces
+namespace PubSubServices.Data.Message.Interfaces
 {
     public interface ICredentialProvider
     {

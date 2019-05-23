@@ -1,11 +1,12 @@
 ﻿using Microsoft.Extensions.Logging;
+using PubSubServices.Data.Message.Interfaces;
 using PubSubServices.Model.PubSub;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-using PubSubServices.Data.MessageSink.Interfaces;
+
 
 namespace PubSubServices.Data.MessageSink.Log
 {

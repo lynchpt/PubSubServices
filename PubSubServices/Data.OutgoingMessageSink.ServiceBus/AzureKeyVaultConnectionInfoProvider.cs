@@ -7,9 +7,7 @@ using Microsoft.Azure.KeyVault;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
-
-using PubSubServices.Data.MessageSink.Interfaces;
-
+using PubSubServices.Data.Message.Interfaces;
 
 namespace PubSubServicesData.MessageSink.ServiceBus
 {

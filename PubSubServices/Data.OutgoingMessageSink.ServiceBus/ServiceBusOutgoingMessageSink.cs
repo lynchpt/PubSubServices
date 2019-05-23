@@ -1,7 +1,7 @@
 ﻿using Microsoft.Azure.ServiceBus;
 using Microsoft.Azure.ServiceBus.Core;
 using Microsoft.Extensions.Logging;
-using PubSubServices.Data.MessageSink.Interfaces;
+using PubSubServices.Data.Message.Interfaces;
 using PubSubServices.Model.PubSub;
 using System;
 using System.Collections.Generic;

@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Options;
-using PubSubServices.Data.MessageSink.Interfaces;
+using PubSubServices.Data.Message.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;

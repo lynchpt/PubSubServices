@@ -7,7 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Data.MessageSource.Interfaces\Data.MessageSource.Interfaces.csproj" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Data.OutgoingMessage.Interfaces\Data.OutgoingMessage.Interfaces.csproj" />
   </ItemGroup>
 
   <ItemGroup>
