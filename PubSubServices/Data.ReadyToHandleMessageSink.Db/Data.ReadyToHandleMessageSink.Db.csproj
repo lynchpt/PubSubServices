@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>PubSubServices.Data.ReadyToHandleMessageSink.Db</AssemblyName>
+    <RootNamespace>PubSubServices.Data.ReadyToHandleMessageSink.Db</RootNamespace>
+  </PropertyGroup>
+
+</Project>
