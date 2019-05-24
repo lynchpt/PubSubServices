@@ -6,11 +6,12 @@ using System.Text;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using PubSubServices.Data.MessageSink.Interfaces;
+using PubSubServices.Data.Message.Interfaces;
 using PubSubServices.Data.MessageSink.Log;
 using PubSubServices.Data.MessageSource.InMemory;
-using PubSubServices.Data.MessageSource.Interfaces;
+using PubSubServices.Data.OutgoingMessage.Interfaces;
 using PubSubServices.Model.PubSub;
+
 using PubSubServicesData.MessageSink.ServiceBus;
 
 namespace PubSubServices.Service.MessagePublisher
@@ -75,6 +76,7 @@ namespace PubSubServices.Service.MessagePublisher
         private static void ConfigureOptions(IServiceCollection serviceCollection, IConfiguration configuration)
         {
             serviceCollection.Configure<ServiceBusEnvVarConnectionInfoOptions>(configuration.GetSection(nameof(ServiceBusEnvVarConnectionInfoOptions)));
+            //serviceCollection.Configure<KeyVaultConnectionInfoOptions>(configuration.GetSection(nameof(KeyVaultConnectionInfoOptions)));
         }
 
         private void ConfigureDependencyInjection(IServiceCollection serviceCollection)
@@ -84,8 +86,9 @@ namespace PubSubServices.Service.MessagePublisher
             serviceCollection.AddScoped<IConnectionInfoProvider, EnvironmentVariableConnectionInfoProvider>();
             serviceCollection.AddScoped<ICredentialProvider, DefaultCredentialProvider>();
             serviceCollection.AddScoped<IOutgoingMessageSource, InMemoryOutgoingMessageSource>();
-            //serviceCollection.AddSingleton<IPubSubMessageSink, LogMessageSink>();
-            serviceCollection.AddSingleton<IPubSubMessageSink, ServiceBusMessageSink>();
+            //serviceCollection.AddSingleton<IOutgoingMessageSink, LogMessageSink>();
+            //serviceCollection.AddSingleton<IOutgoingMessageSink, ServiceBusOutgoingMessageSink>();
+            serviceCollection.AddSingleton<IOutgoingMessageSink, LogOutgoingMessageSink>();
             serviceCollection.AddSingleton<IMessagePublisherService, MessagePublisherService>();
         }
 

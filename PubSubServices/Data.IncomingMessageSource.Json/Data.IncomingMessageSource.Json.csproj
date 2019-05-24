@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>PubSubServices.Data.IncomingMessageSource.Json</AssemblyName>
+    <RootNamespace>PubSubServices.Data.IncomingMessageSource.Json</RootNamespace>
+  </PropertyGroup>
+
+</Project>

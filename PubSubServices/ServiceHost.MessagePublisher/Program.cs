@@ -7,10 +7,6 @@ using HostedService.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using PubSubServices.Data.MessageSink.Interfaces;
-using PubSubServices.Data.MessageSink.Log;
-using PubSubServices.Data.MessageSource.InMemory;
-using PubSubServices.Data.MessageSource.Interfaces;
 using PubSubServices.Service.MessagePublisher;
 using PubSubServices.ServiceHost.MessagePublisher;
 using Serilog;
@@ -151,7 +147,7 @@ namespace PubSubServices.ServiceHost.MessagePublisher
             serviceCollection.AddSingleton<ServiceBase, MessagePublisherScheduler>();
             //move to MessagePublisherScheduler
             //serviceCollection.AddSingleton<IOutgoingMessageSource, OutgoingMessageSource>();
-            //serviceCollection.AddSingleton<IPubSubMessageSink, LogMessageSink>();
+            //serviceCollection.AddSingleton<IOutgoingMessageSink, LogMessageSink>();
             //serviceCollection.AddSingleton<IMessagePublisherService, LogMessagePublisherService>();
 
             //_serviceProvider = serviceCollection.BuildServiceProvider();

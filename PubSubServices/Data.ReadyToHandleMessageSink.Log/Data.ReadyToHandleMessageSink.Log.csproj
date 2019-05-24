@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>PubSubServices.Data.ReadyToHandleMessageSink.Log</AssemblyName>
+    <RootNamespace>PubSubServices.Data.ReadyToHandleMessageSink.Log</RootNamespace>
+  </PropertyGroup>
+
+</Project>
