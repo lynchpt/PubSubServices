@@ -9,7 +9,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using PubSubServices.Data.Message.Interfaces;
 
-namespace PubSubServicesData.MessageSink.ServiceBus
+namespace PubSubServices.Infra.ServiceBus
 {
     /// <summary>
     /// This is a sample implementation of a helper class that encapsulates the steps needed to get a connection string for

@@ -23,6 +23,7 @@
     <ProjectReference Include="..\Data.OutgoingMessageSink.ServiceBus\Data.OutgoingMessageSink.ServiceBus.csproj" />
     <ProjectReference Include="..\Data.OutgoingMessageSource.InMemory\Data.OutgoingMessageSource.InMemory.csproj" />
     <ProjectReference Include="..\HostedService.Interfaces\HostedService.Interfaces.csproj" />
+    <ProjectReference Include="..\Infra.ServiceBus\Infra.ServiceBus.csproj" />
     <ProjectReference Include="..\Model.PubSub\Model.PubSub.csproj" />
   </ItemGroup>
 

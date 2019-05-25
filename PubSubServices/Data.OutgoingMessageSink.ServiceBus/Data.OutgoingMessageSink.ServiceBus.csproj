@@ -17,6 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Data.Message.Interfaces\Data.Message.Interfaces.csproj" />
     <ProjectReference Include="..\Data.OutgoingMessage.Interfaces\Data.OutgoingMessage.Interfaces.csproj" />
+    <ProjectReference Include="..\Infra.ServiceBus\Infra.ServiceBus.csproj" />
   </ItemGroup>
 
   <ItemGroup>

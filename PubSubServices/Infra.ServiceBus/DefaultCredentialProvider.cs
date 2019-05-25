@@ -6,7 +6,7 @@ using System.Text;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using PubSubServices.Data.Message.Interfaces;
 
-namespace PubSubServicesData.MessageSink.ServiceBus
+namespace PubSubServices.Infra.ServiceBus
 {
     public class DefaultCredentialProvider : ICredentialProvider
     {
@@ -22,7 +22,8 @@ namespace PubSubServicesData.MessageSink.ServiceBus
         /// 
         public UserCredential GetUserCredential()
         {
-            return new UserCredential("corp\\lynchp");
+            //TODO: Get corp user name of execurting user or service account
+            return new UserCredential("corp\\someuser");
         }
 
         /// THIS IS A HACK IMPLEMENTATION ONLY FOR USE BEFORE FMG ACTIVE DIRECTORY IS SYNCED WITH AZURE AD!!
