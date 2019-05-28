@@ -71,23 +71,22 @@ namespace PubSubServices.Service.MessagePublisher
 
         #endregion
 
-
         #region Private Methods
 
         private static void ConfigureOptions(IServiceCollection serviceCollection, IConfiguration configuration)
         {
-            serviceCollection.Configure<ServiceBusEnvVarConnectionInfoOptions>(configuration.GetSection(nameof(ServiceBusEnvVarConnectionInfoOptions)));
-            //serviceCollection.Configure<KeyVaultConnectionInfoOptions>(configuration.GetSection(nameof(KeyVaultConnectionInfoOptions)));
+            //serviceCollection.Configure<ServiceBusEnvVarConnectionInfoOptions>(configuration.GetSection(nameof(ServiceBusEnvVarConnectionInfoOptions)));
+            serviceCollection.Configure<KeyVaultConnectionInfoOptions>(configuration.GetSection(nameof(KeyVaultConnectionInfoOptions)));
         }
 
         private void ConfigureDependencyInjection(IServiceCollection serviceCollection)
         {
             //serviceCollection.AddSingleton<ServiceBase, MessagePublisherScheduler>();
 
-            serviceCollection.AddScoped<IConnectionInfoProvider, EnvironmentVariableConnectionInfoProvider>();
+            //serviceCollection.AddScoped<IConnectionInfoProvider, EnvironmentVariableConnectionInfoProvider>();
+            serviceCollection.AddScoped<IConnectionInfoProvider,AzureKeyVaultConnectionInfoProvider>();
             serviceCollection.AddScoped<ICredentialProvider, DefaultCredentialProvider>();
             serviceCollection.AddScoped<IOutgoingMessageSource, InMemoryOutgoingMessageSource>();
-            //serviceCollection.AddSingleton<IOutgoingMessageSink, LogMessageSink>();
             //serviceCollection.AddSingleton<IOutgoingMessageSink, ServiceBusOutgoingMessageSink>();
             serviceCollection.AddSingleton<IOutgoingMessageSink, LogOutgoingMessageSink>();
             serviceCollection.AddSingleton<IMessagePublisherService, MessagePublisherService>();

@@ -45,8 +45,8 @@ namespace PubSubServices.Data.MessageSource.InMemory
                     Body = GenerateMessageBody(),
                     BodyFullTypeName = "Model.Message.SampleTopic.SampleTopicMessageBody",
 
-                    TopicName = "InsuranceBinderPremiumEstablished",
-                    TopicNamespace = "DEV01",
+                    TopicName = "Example.BizTalkReplacement.SampleEvent",
+                    TopicNamespace = "DEV10",
 
                     PubSubSubmissionAttempts = 0,
                     WasSentToPubSub = false,

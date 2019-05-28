@@ -22,8 +22,8 @@ namespace PubSubServices.Infra.ServiceBus
         /// 
         public UserCredential GetUserCredential()
         {
-            //TODO: Get corp user name of execurting user or service account
-            return new UserCredential("corp\\someuser");
+            UserCredential cred = new UserCredential($"{Environment.UserName}@fmglobal.com"); //worked
+            return cred;
         }
 
         /// THIS IS A HACK IMPLEMENTATION ONLY FOR USE BEFORE FMG ACTIVE DIRECTORY IS SYNCED WITH AZURE AD!!
