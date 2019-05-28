@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.489
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.452
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceHost.MessagePublisher", "ServiceHost.MessagePublisher\ServiceHost.MessagePublisher.csproj", "{9CD3A931-6840-4D2A-8F2E-953ED5D69F9D}"
 EndProject
@@ -53,17 +53,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OutgoingMessage", "Outgoing
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReadyToHandleMessage", "ReadyToHandleMessage", "{1909576C-98DA-408C-8890-824DD7556EC8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.ReadyToHandleMessage.Interfaces", "Data.ReadyToHandleMessage.Interfaces\Data.ReadyToHandleMessage.Interfaces.csproj", "{311B2732-B360-43D8-8F2C-5106D7DC5886}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.ReadyToHandleMessage.Interfaces", "Data.ReadyToHandleMessage.Interfaces\Data.ReadyToHandleMessage.Interfaces.csproj", "{311B2732-B360-43D8-8F2C-5106D7DC5886}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.ReadyToHandleMessageSink.Log", "Data.ReadyToHandleMessageSink.Log\Data.ReadyToHandleMessageSink.Log.csproj", "{D1116D20-7545-4D75-BCB3-33DD47FDC839}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.ReadyToHandleMessageSink.Log", "Data.ReadyToHandleMessageSink.Log\Data.ReadyToHandleMessageSink.Log.csproj", "{D1116D20-7545-4D75-BCB3-33DD47FDC839}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.ReadyToHandleMessageSink.Db", "Data.ReadyToHandleMessageSink.Db\Data.ReadyToHandleMessageSink.Db.csproj", "{5D4BE758-8E49-4388-86D7-7212DE2AB5F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.ReadyToHandleMessageSink.Db", "Data.ReadyToHandleMessageSink.Db\Data.ReadyToHandleMessageSink.Db.csproj", "{5D4BE758-8E49-4388-86D7-7212DE2AB5F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.ReadyToHandleMessageSource.Json", "Data.ReadyToHandleMessageSource.Json\Data.ReadyToHandleMessageSource.Json.csproj", "{18B391A8-0CBC-4606-B837-B5D066B0D0AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.ReadyToHandleMessageSource.Json", "Data.ReadyToHandleMessageSource.Json\Data.ReadyToHandleMessageSource.Json.csproj", "{18B391A8-0CBC-4606-B837-B5D066B0D0AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.ReadyToHandleMessageSource.Db", "Data.ReadyToHandleMessageSource.Db\Data.ReadyToHandleMessageSource.Db.csproj", "{BC49CC26-8D0D-4694-9937-D325A639FE4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.ReadyToHandleMessageSource.Db", "Data.ReadyToHandleMessageSource.Db\Data.ReadyToHandleMessageSource.Db.csproj", "{BC49CC26-8D0D-4694-9937-D325A639FE4D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.ReadyToHandleMessageSink.Wcf", "Data.ReadyToHandleMessageSink.Wcf\Data.ReadyToHandleMessageSink.Wcf.csproj", "{F4AF5915-1528-4D53-BE9D-866D82A4AA77}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.ReadyToHandleMessageSink.Wcf", "Data.ReadyToHandleMessageSink.Wcf\Data.ReadyToHandleMessageSink.Wcf.csproj", "{F4AF5915-1528-4D53-BE9D-866D82A4AA77}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infra.ServiceBus", "Infra.ServiceBus\Infra.ServiceBus.csproj", "{0DC4ABA1-112A-4145-AD56-7C122EA61C12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.MessageSubscriberEndpoint.Wcf", "Data.MessageSubscriberEndpoint.Wcf\Data.MessageSubscriberEndpoint.Wcf.csproj", "{85587C41-6E34-4B07-8103-3CF6EDD7D8BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -179,6 +183,14 @@ Global
 		{F4AF5915-1528-4D53-BE9D-866D82A4AA77}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4AF5915-1528-4D53-BE9D-866D82A4AA77}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4AF5915-1528-4D53-BE9D-866D82A4AA77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DC4ABA1-112A-4145-AD56-7C122EA61C12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DC4ABA1-112A-4145-AD56-7C122EA61C12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DC4ABA1-112A-4145-AD56-7C122EA61C12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DC4ABA1-112A-4145-AD56-7C122EA61C12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85587C41-6E34-4B07-8103-3CF6EDD7D8BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85587C41-6E34-4B07-8103-3CF6EDD7D8BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85587C41-6E34-4B07-8103-3CF6EDD7D8BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85587C41-6E34-4B07-8103-3CF6EDD7D8BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -211,6 +223,8 @@ Global
 		{18B391A8-0CBC-4606-B837-B5D066B0D0AE} = {1909576C-98DA-408C-8890-824DD7556EC8}
 		{BC49CC26-8D0D-4694-9937-D325A639FE4D} = {1909576C-98DA-408C-8890-824DD7556EC8}
 		{F4AF5915-1528-4D53-BE9D-866D82A4AA77} = {1909576C-98DA-408C-8890-824DD7556EC8}
+		{0DC4ABA1-112A-4145-AD56-7C122EA61C12} = {B075D7AD-6DD5-445A-99EF-3E9D1633A41C}
+		{85587C41-6E34-4B07-8103-3CF6EDD7D8BB} = {1909576C-98DA-408C-8890-824DD7556EC8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9B91A27E-790D-4D61-8EBD-4E863BF45F2B}

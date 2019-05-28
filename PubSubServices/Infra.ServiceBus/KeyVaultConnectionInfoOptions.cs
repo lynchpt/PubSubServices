@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PubSubServicesData.MessageSink.ServiceBus
+namespace PubSubServices.Infra.ServiceBus
 {
     public class KeyVaultConnectionInfoOptions
     {

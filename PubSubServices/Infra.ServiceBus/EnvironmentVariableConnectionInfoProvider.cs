@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PubSubServicesData.MessageSink.ServiceBus
+namespace PubSubServices.Infra.ServiceBus
 {
     public class EnvironmentVariableConnectionInfoProvider : IConnectionInfoProvider
     {
