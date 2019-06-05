@@ -1,37 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.ServiceProcess;
 using System.Text;
+using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using PubSubServices.Data.IncomingMessage.Interfaces;
+using PubSubServices.Data.IncomingMessageSink.Log;
+using PubSubServices.Data.IncomingMessageSource.InMemory;
 using PubSubServices.Data.Message.Interfaces;
-using PubSubServices.Data.MessageSink.Log;
-using PubSubServices.Data.MessageSource.InMemory;
-using PubSubServices.Data.OutgoingMessage.Interfaces;
 using PubSubServices.Infra.ServiceBus;
 using PubSubServices.Model.PubSub;
 
-using PubSubServicesData.MessageSink.ServiceBus;
-
-namespace PubSubServices.Service.MessagePublisher
+namespace PubSubServices.Service.MessageSubscriber
 {
-    public class MessagePublisherScheduler : ServiceBase, IMessagePublisherScheduler
+    public class MessageSubscriberService : ServiceBase, IMessageSubscriberService
     {
         #region Class Variables
 
-        private readonly ILogger<MessagePublisherScheduler> _logger;
-        private readonly IMessagePublisherService _messagePublisherService;
-        //private readonly IConfiguration _configuration;
+        private readonly ILogger<MessageSubscriberService> _logger;
+        private readonly IConfiguration _configuration;
         private System.Timers.Timer _scheduler;
-
-
         #endregion
 
-        #region Constructors
 
-        public MessagePublisherScheduler(ILogger<MessagePublisherScheduler> logger, IServiceCollection serviceCollection, IConfiguration configuration)
+        #region Constructors
+        public MessageSubscriberService(ILogger<MessageSubscriberService> logger, IServiceCollection serviceCollection, IConfiguration configuration)
         {
             _logger = logger;
 
@@ -40,13 +35,12 @@ namespace PubSubServices.Service.MessagePublisher
 
             IServiceProvider serviceProvider = serviceCollection.BuildServiceProvider();
 
-            _messagePublisherService = serviceProvider.GetService<IMessagePublisherService>();
-
-
-            ServiceName = _messagePublisherService.GetType().Name;
+            
+            ServiceName = nameof(MessageSubscriberService);
             //timer
             InitializeTimer();
         }
+
         #endregion
 
         #region ServiceBase Overrides
@@ -71,8 +65,14 @@ namespace PubSubServices.Service.MessagePublisher
 
         #endregion
 
-        #region Private Methods
+        #region IMessageSubscriberService Implementation
+        public Task<IList<IncomingPubSubMessageDescription>> ReceiveMessagesAsync(int receiveBatchSize)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
 
+        #region Configuration Private Methods
         private static void ConfigureOptions(IServiceCollection serviceCollection, IConfiguration configuration)
         {
             //serviceCollection.Configure<ServiceBusEnvVarConnectionInfoOptions>(configuration.GetSection(nameof(ServiceBusEnvVarConnectionInfoOptions)));
@@ -83,16 +83,17 @@ namespace PubSubServices.Service.MessagePublisher
         {
             //serviceCollection.AddSingleton<ServiceBase, MessagePublisherScheduler>();
 
-            //serviceCollection.AddScoped<IConnectionInfoProvider, EnvironmentVariableConnectionInfoProvider>();
-            serviceCollection.AddScoped<IConnectionInfoProvider,AzureKeyVaultConnectionInfoProvider>();
-            serviceCollection.AddScoped<ICredentialProvider, DefaultCredentialProvider>();
-            serviceCollection.AddScoped<IOutgoingMessageSource, InMemoryOutgoingMessageSource>();
+            serviceCollection.AddScoped<IConnectionInfoProvider, EnvironmentVariableConnectionInfoProvider>();
+            //serviceCollection.AddScoped<IConnectionInfoProvider, AzureKeyVaultConnectionInfoProvider>();
+            //serviceCollection.AddScoped<ICredentialProvider, DefaultCredentialProvider>();
+            serviceCollection.AddScoped<IIncomingMessageSource, InMemoryIncomingMessageSource>();
             //serviceCollection.AddSingleton<IOutgoingMessageSink, ServiceBusOutgoingMessageSink>();
-            serviceCollection.AddSingleton<IOutgoingMessageSink, LogOutgoingMessageSink>();
-            serviceCollection.AddSingleton<IMessagePublisherService, MessagePublisherService>();
+            serviceCollection.AddSingleton<IIncomingMessageSink, LogIncomingMessageSink>();
         }
 
+        #endregion
 
+        #region Scheduling Private Methods
         private void InitializeTimer()
         {
             _scheduler = new System.Timers.Timer();
@@ -106,10 +107,9 @@ namespace PubSubServices.Service.MessagePublisher
         {
             try
             {
-                _logger.LogInformation(
-                    $"{nameof(MessagePublisherScheduler)} {nameof(OnElapsed)} method called");
+                _logger.LogInformation($"{nameof(MessageSubscriberService)} {nameof(OnElapsed)} method called");
 
-                IList<PubSubMessagePublishResult> publishResults = await _messagePublisherService.PublishMessagesAsync();
+                //IList<PubSubMessagePublishResult> publishResults = await _messagePublisherService.PublishMessagesAsync();
 
                 //if we succeeded (no exception generated), we know we can enable the timer
                 //to fire one more event
@@ -127,5 +127,7 @@ namespace PubSubServices.Service.MessagePublisher
             }
         }
         #endregion
+
+
     }
 }

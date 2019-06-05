@@ -6,4 +6,8 @@
     <RootNamespace>PubSubService.Service.MessageHandler</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Windows.Compatibility" Version="2.1.1" />
+  </ItemGroup>
+
 </Project>

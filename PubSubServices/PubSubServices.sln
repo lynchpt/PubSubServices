@@ -69,6 +69,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infra.ServiceBus", "Infra.S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.MessageSubscriberEndpoint.Wcf", "Data.MessageSubscriberEndpoint.Wcf\Data.MessageSubscriberEndpoint.Wcf.csproj", "{85587C41-6E34-4B07-8103-3CF6EDD7D8BB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.IncomingMessageSource.InMemory", "Data.IncomingMessageSource.InMemory\Data.IncomingMessageSource.InMemory.csproj", "{9029B5F7-D4B0-4D35-9FF7-BBAAB95D3F01}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -191,6 +193,10 @@ Global
 		{85587C41-6E34-4B07-8103-3CF6EDD7D8BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{85587C41-6E34-4B07-8103-3CF6EDD7D8BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{85587C41-6E34-4B07-8103-3CF6EDD7D8BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9029B5F7-D4B0-4D35-9FF7-BBAAB95D3F01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9029B5F7-D4B0-4D35-9FF7-BBAAB95D3F01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9029B5F7-D4B0-4D35-9FF7-BBAAB95D3F01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9029B5F7-D4B0-4D35-9FF7-BBAAB95D3F01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -225,6 +231,7 @@ Global
 		{F4AF5915-1528-4D53-BE9D-866D82A4AA77} = {1909576C-98DA-408C-8890-824DD7556EC8}
 		{0DC4ABA1-112A-4145-AD56-7C122EA61C12} = {B075D7AD-6DD5-445A-99EF-3E9D1633A41C}
 		{85587C41-6E34-4B07-8103-3CF6EDD7D8BB} = {1909576C-98DA-408C-8890-824DD7556EC8}
+		{9029B5F7-D4B0-4D35-9FF7-BBAAB95D3F01} = {F972D94C-8CCC-4F18-B67A-4CE580E032E9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9B91A27E-790D-4D61-8EBD-4E863BF45F2B}

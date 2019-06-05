@@ -7,6 +7,6 @@ namespace PubSubServices.Data.IncomingMessage.Interfaces
 {
     public interface IIncomingMessageSource
     {
-       IList<IncomingPubSubMessageDescription> GetIncomingMessages();
+       IList<IncomingPubSubMessageDescription> ReceiveIncomingMessages(int receiveMessageBatchSize);
     }
 }
